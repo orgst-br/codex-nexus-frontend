@@ -1,0 +1,25 @@
+{
+  "name": "codex-orgst",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo - Orgst Community Platform",
+  "packageManager": "pnpm@10.28.2",
+  "scripts": {
+    "prepare": "husky",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "format": "turbo run format",
+    "check-format": "turbo run check-format",
+    "generate-types": "bash scripts/generate-api-types.sh"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.3.1",
+    "@commitlint/config-conventional": "^20.3.1",
+    "@orgst/config": "workspace:*",
+    "husky": "^9.1.7",
+    "turbo": "^2.7.5"
+  },
+  "prettier": "@orgst/config/prettier"
+}
