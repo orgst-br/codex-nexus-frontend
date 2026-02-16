@@ -5,8 +5,8 @@ import { StyledComponentsRegistry } from '@/shared/lib/registry'
 import { AppProviders } from '@/shared/providers'
 
 export const metadata: Metadata = {
-  title: 'Orgst — Comunidade Dev',
-  description: 'Plataforma open-source da comunidade de mentoria dev Orgst',
+  title: 'weOrgst',
+  description: 'Plataforma open-source da comunidade Orgst',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
