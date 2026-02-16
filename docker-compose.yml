@@ -2,10 +2,10 @@ services:
   dev:
     build: .
     volumes:
-      - ./frontend:/app
+      - .:/app
       - node_modules:/app/node_modules
     ports:
-      - "9000:9000"
+      - "3000:3000"
     stdin_open: true
     tty: true
     environment:
