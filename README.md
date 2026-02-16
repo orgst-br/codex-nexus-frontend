@@ -79,8 +79,6 @@ src/
 
 ```
 codex-nexus/
-├── frontend/
-│   ├── apps/
 ```
 
 ---
