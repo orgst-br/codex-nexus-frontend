@@ -4,8 +4,8 @@ import createClient from 'openapi-fetch'
 // descomente a linha abaixo e remova o 'any':
 // import type { paths } from '@/shared/types/api'
 
-const apiClient = createClient({
-  baseUrl: process.env['NEXT_PUBLIC_API_URL'] ?? 'http://localhost:8000/api/v1',
+const apiClient = createClient<any>({
+  baseUrl: process.env['NEXT_PUBLIC_API_URL'] ?? 'http://127.0.0.1:8000/api/v1',
 })
 
 export default apiClient
