@@ -1,1 +1,1 @@
-pnpm exec turbo run lint check-format
+npm run lint && npm run check-format

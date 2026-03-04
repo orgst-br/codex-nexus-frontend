@@ -1,4 +1,4 @@
-name: "CI - Affected Check"
+name: 'CI - Check'
 
 on:
   pull_request:
@@ -18,12 +18,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Enable pnpm via corepack
-        run: corepack enable && corepack prepare pnpm@10.28.2 --activate
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
-      - name: Run affected checks
-        run: pnpm exec turbo run lint test build --filter=...[origin/main]
+      - name: Lint
+        run: npm run lint
+
+      - name: Check format
+        run: npm run check-format
+
+      - name: Test
+        run: npm run test:ci
+
+      - name: Build
+        run: npm run build
