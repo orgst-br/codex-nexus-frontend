@@ -1,12 +1,8 @@
-import { createRequire } from 'node:module'
-
-const require = createRequire(import.meta.url)
-
-export default {
+module.exports = {
   testEnvironment: '@happy-dom/jest-environment',
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
   transform: {
-    '^.+\\.[jt]sx?$': ['babel-jest', { configFile: require.resolve('./babel.react-ts.cjs') }],
+    '^.+\\.[jt]sx?$': ['babel-jest', { configFile: './.babelrc' }],
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',

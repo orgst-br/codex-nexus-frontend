@@ -1,4 +1,4 @@
-name: "Manual Deploy"
+name: 'Manual Deploy'
 
 on:
   workflow_dispatch:
@@ -25,15 +25,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Enable pnpm via corepack
-        run: corepack enable && corepack prepare pnpm@10.28.2 --activate
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
-      - name: Build all packages
-        run: pnpm exec turbo run build
+      - name: Build
+        run: npm run build
 
       # TODO: Adicionar step de deploy conforme infra
       - name: Deploy to ${{ github.event.inputs.environment }}

@@ -52,13 +52,13 @@ const ASCII_ART = `
 
 const BOOT_SEQUENCE: BootLogEntry[] = [
   { level: 'OK', message: 'Started Kernel Thread.', delay: 120 },
-  { level: 'OK', message: 'Found device /dev/hda1.', delay: 180 },
-  { level: 'OK', message: 'Checking root file system...', delay: 240 },
-  { level: 'OK', message: 'Mounting local filesystems.', delay: 150 },
-  { level: 'OK', message: 'Activating swap partitions.', delay: 200 },
-  { level: 'OK', message: 'Setting up networking...', delay: 300 },
-  { level: 'INFO', message: 'Loading user interface modules...', delay: 350 },
-  { level: 'OK', message: 'Reached target Graphical Interface.', delay: 400 },
+  { level: 'OK', message: 'Detected hardware_soul at /dev/human0', delay: 180 },
+  { level: 'OK', message: 'Verifying integrity of past_experiences...', delay: 240 },
+  { level: 'OK', message: 'Mounting ~/dreams --read-only', delay: 150 },
+  { level: 'OK', message: 'Allocating mental_cache for innovation.', delay: 200 },
+  { level: 'OK', message: 'Establishing peer-to-peer empathy link...', delay: 300 },
+  { level: 'INFO', message: 'Visualizing the invisible. Nexus online.', delay: 350 },
+  { level: 'OK', message: 'sh ./init_registration_protocol.sh', delay: 400 },
 ]
 
 const POST_BOOT = [

@@ -12,7 +12,6 @@ import {
   Field,
   FooterRow,
   FooterText,
-  ForgotLink,
   Form,
   Header,
   HiddenFileInput,
@@ -50,12 +49,7 @@ type Props = {
   isLoading?: boolean
 }
 
-export function ProfileRegister({
-  onSubmit,
-  onLoginClick,
-  onForgotPasswordClick,
-  isLoading = false,
-}: Props) {
+export function ProfileRegister({ onSubmit, onLoginClick, isLoading = false }: Props) {
   const [form, setForm] = useState<ProfileFormData>({
     username: '',
     password: '',
@@ -90,14 +84,14 @@ export function ProfileRegister({
       <Header>
         <TitleRow>
           <Caret>{'>'}</Caret>
-          <Title>REGISTER_USER</Title>
+          <Title>useradd --new-profile</Title>
         </TitleRow>
-        <Subtitle>Create your developer identity to proceed.</Subtitle>
+        <Subtitle>[ Initializing your identity instance on the main branch 🧠 ]</Subtitle>
       </Header>
 
       <Form onSubmit={handleSubmit}>
         <Field>
-          <Label>USR/BIN/USERNAME</Label>
+          <Label>set-env USER_ID</Label>
           <InputRow>
             <InputPrompt>{'>'}</InputPrompt>
             <StyledInput
@@ -113,7 +107,7 @@ export function ProfileRegister({
         </Field>
 
         <Field>
-          <Label>ETC/SECURITY/PASSWORD</Label>
+          <Label>set-env USER_SECRET --mask</Label>
           <InputRow>
             <InputPrompt>{'>'}</InputPrompt>
             <StyledInput
@@ -133,7 +127,7 @@ export function ProfileRegister({
         </Field>
 
         <Field>
-          <Label>HOME/USER/AVATAR_PATH</Label>
+          <Label>upload --target ~/profile/avatar</Label>
           <InputRow>
             <InputPrompt>{'>'}</InputPrompt>
             <StyledInput
@@ -144,7 +138,7 @@ export function ProfileRegister({
               readOnly
             />
             <BrowseButton type="button" onClick={() => fileInputRef.current?.click()}>
-              BROWSE
+              git push --best-pic
             </BrowseButton>
             <HiddenFileInput
               ref={fileInputRef}
@@ -156,11 +150,11 @@ export function ProfileRegister({
         </Field>
 
         <Field>
-          <Label>VAR/LOG/BIO.TXT</Label>
+          <Label>about_me.md</Label>
           <TextareaRow>
             <TextareaPrompt>{'>'}</TextareaPrompt>
             <StyledTextarea
-              placeholder="Describe your stack..."
+              placeholder="Initializing biography... Who is the human behind the terminal? Map your history, your stack, and the dreams you’re currently compiling."
               value={form.bio}
               onChange={handleChange('bio')}
               rows={4}
@@ -171,7 +165,7 @@ export function ProfileRegister({
 
         <RowFields>
           <Field>
-            <Label>NET/LINKEDIN</Label>
+            <Label>ln -s /linkedin ~/</Label>
             <InputRow>
               <InputPrompt>{'>'}</InputPrompt>
               <StyledInput
@@ -185,7 +179,7 @@ export function ProfileRegister({
           </Field>
 
           <Field>
-            <Label>GIT/REMOTE/ORIGIN</Label>
+            <Label>ln -s /github ~/</Label>
             <InputRow>
               <InputPrompt>{'>'}</InputPrompt>
               <StyledInput
@@ -200,11 +194,8 @@ export function ProfileRegister({
         </RowFields>
 
         <ActionsRow>
-          <ForgotLink type="button" onClick={onForgotPasswordClick}>
-            Forgot_Password?
-          </ForgotLink>
           <ExecuteButton type="submit" disabled={isLoading}>
-            {isLoading ? <Spinner /> : 'EXECUTE'}
+            {isLoading ? <Spinner /> : 'sudo system start user-session'}
             <ExecuteIcon>▶</ExecuteIcon>
           </ExecuteButton>
         </ActionsRow>

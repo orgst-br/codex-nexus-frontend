@@ -1,10 +1,7 @@
 node_modules
-.turbo
 dist
-**/dist
 build
-**/build
 coverage
 *.min.js
-pnpm-lock.yaml
+package-lock.json
 .next

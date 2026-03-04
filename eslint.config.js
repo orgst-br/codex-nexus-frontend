@@ -1,10 +1,10 @@
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
+import importPlugin from 'eslint-plugin-import'
 import prettierPlugin from 'eslint-plugin-prettier'
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort'
-import importPlugin from 'eslint-plugin-import'
 
 export default [
   {
@@ -19,11 +19,11 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
-      'react': reactPlugin,
+      react: reactPlugin,
       'react-hooks': reactHooksPlugin,
-      'prettier': prettierPlugin,
+      prettier: prettierPlugin,
       'simple-import-sort': simpleImportSortPlugin,
-      'import': importPlugin,
+      import: importPlugin,
     },
     settings: {
       react: { version: 'detect' },
@@ -36,14 +36,20 @@ export default [
       'react-hooks/exhaustive-deps': 'warn',
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
       'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
-      'max-len': ['warn', { code: 100, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreComments: true }],
+      'max-len': [
+        'warn',
+        { code: 100, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreComments: true },
+      ],
     },
   },
   {
-    ignores: ['**/dist/**', '**/node_modules/**', '**/coverage/**'],
+    ignores: ['.next/**', '**/dist/**', '**/node_modules/**', '**/coverage/**'],
   },
 ]

@@ -30,7 +30,6 @@ O Orgst nasce para ser a "casa" da comunidade:
 | **React Hook Form + Zod**  | Formulários e validação    |
 | **Jest + Testing Library** | Testes unitários           |
 | **ESLint + Prettier**      | Qualidade de código        |
-| **Turborepo + pnpm**       | Monorepo                   |
 
 ### Backend
 
@@ -88,15 +87,14 @@ codex-nexus/
 ### Pré-requisitos
 
 - **Node.js 22+**
-- **pnpm 10+**
 
 ### Frontend
 
 ```bash
 git clone git@github.com:orgst/codex-nexus.git
 cd codex-nexus/frontend
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 **Acessos:**
@@ -142,7 +140,7 @@ pnpm dev
 
 1. Crie uma branch a partir de `develop`: `git checkout -b feature/minha-feature`
 2. Desenvolva seguindo as convenções acima
-3. Rode `pnpm lint && pnpm test` antes do commit
+3. Rode `npm run lint && npm test` antes do commit
 4. Abra um PR para `develop` com descrição clara
 
 Issues com a tag **`good first issue`** são ótimos pontos de entrada para novos voluntários.
