@@ -1,6 +1,20 @@
 'use client'
 
-import styled from 'styled-components'
+import {
+  Avatar,
+  Bio,
+  Card,
+  CardHeader,
+  Grid,
+  Header,
+  Link,
+  Links,
+  Name,
+  Role,
+  Subtitle,
+  Title,
+  Wrapper,
+} from './MemberCard.styles'
 
 const AVATAR_COLORS = ['#FF6AC1', '#B392F0', '#00D4FF', '#27C93F', '#FF9D00', '#FF4757'] as const
 
@@ -31,7 +45,7 @@ const MOCK_MEMBERS = [
   },
 ]
 
-export function MemberCardContent() {
+export function MemberCard() {
   return (
     <Wrapper>
       <Header>
@@ -65,103 +79,3 @@ export function MemberCardContent() {
     </Wrapper>
   )
 }
-
-const Wrapper = styled.div`
-  padding: 8px 0;
-`
-
-const Header = styled.div`
-  margin-bottom: 32px;
-`
-
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: 20px;
-  margin-bottom: 4px;
-
-  &::before {
-    content: '> ';
-    color: ${({ theme }) => theme.colors.textSecondary};
-  }
-`
-
-const Subtitle = styled.p`
-  color: ${({ theme }) => theme.colors.textSecondary};
-  font-size: 13px;
-`
-
-const Grid = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`
-
-const Card = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: 8px;
-  background: ${({ theme }) => theme.colors.background};
-  padding: 20px;
-  transition: border-color 0.2s;
-
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.primary};
-  }
-`
-
-const CardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-`
-
-const Avatar = styled.div<{ $color: string }>`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: ${({ $color }) => $color}22;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${({ $color }) => $color};
-  font-size: 14px;
-  font-weight: 600;
-  border: 1px solid ${({ $color }) => $color}44;
-`
-
-const Name = styled.h3`
-  color: ${({ theme }) => theme.colors.text};
-  font-size: 15px;
-  margin-bottom: 2px;
-`
-
-const Role = styled.span`
-  color: ${({ theme }) => theme.colors.secondary};
-  font-size: 11px;
-`
-
-const Bio = styled.p`
-  color: ${({ theme }) => theme.colors.textSecondary};
-  font-size: 12px;
-  margin-bottom: 12px;
-  line-height: 1.5;
-`
-
-const Links = styled.div`
-  display: flex;
-  gap: 12px;
-`
-
-const Link = styled.a`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: 11px;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &::before {
-    content: '→ ';
-  }
-`

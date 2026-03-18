@@ -1,19 +1,17 @@
 'use client'
 
+import type { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { ProfileRegister } from '@/features/auth-profile-register/UI/ProfileRegister'
-import { WelcomeSystem } from '@/features/welcome-system/UI/WelcomeSystem'
+import { CommunityTerminal } from '@/features/community-terminal/UI/CommunityTerminal'
 
-export function WelcomeRegisterPage() {
+export function AppShell({ children }: { children: ReactNode }) {
   return (
     <Container>
-      <LeftPanel>
-        <WelcomeSystem />
-      </LeftPanel>
-      <RightPanel>
-        <ProfileRegister />
-      </RightPanel>
+      <TerminalPanel>
+        <CommunityTerminal />
+      </TerminalPanel>
+      <ContentPanel>{children}</ContentPanel>
     </Container>
   )
 }
@@ -25,8 +23,8 @@ const Container = styled.div`
   background: ${({ theme }) => theme.colors.background};
 `
 
-const LeftPanel = styled.aside`
-  width: 42%;
+const TerminalPanel = styled.aside`
+  width: 40%;
   min-width: 320px;
   flex-shrink: 0;
 
@@ -35,7 +33,7 @@ const LeftPanel = styled.aside`
   }
 `
 
-const RightPanel = styled.main`
+const ContentPanel = styled.main`
   flex: 1;
   overflow-y: auto;
   border-left: 1px solid ${({ theme }) => theme.colors.border};

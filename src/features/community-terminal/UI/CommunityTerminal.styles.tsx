@@ -1,15 +1,10 @@
 import styled, { keyframes } from 'styled-components'
 
-import type { LogLevel } from './WelcomeSystem'
+import type { LogLevel } from './CommunityTerminal'
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
-`
-
-const blink = keyframes`
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
 `
 
 export const LEVEL_COLOR: Record<LogLevel, string> = {
@@ -171,26 +166,135 @@ export const MessageText = styled.p`
   line-height: 1.5;
 `
 
-export const MessageStatus = styled.p`
-  color: ${({ theme }) => theme.colors.textSecondary};
+// CLI section
+export const CliBlock = styled.div`
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`
+
+export const PromptLine = styled.div`
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+`
+
+export const Prompt = styled.span`
+  white-space: nowrap;
+  flex-shrink: 0;
   font-size: 13px;
 `
 
-export const StatusValue = styled.span`
+export const User = styled.span`
+  color: ${({ theme }) => theme.colors.primary};
+`
+
+export const Host = styled.span`
   color: ${({ theme }) => theme.colors.secondary};
-  animation: ${blink} 1.2s step-start infinite;
 `
 
-export const Footer = styled.div`
-  padding: 12px 28px;
+export const Command = styled.span`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 13px;
+`
+
+export const OutputText = styled.div`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding-left: 4px;
+`
+
+export const CliForm = styled.form`
   display: flex;
-  justify-content: flex-end;
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
-  flex-shrink: 0;
 `
 
-export const TermIcon = styled.span`
-  color: ${({ theme }) => theme.colors.accent};
-  font-size: 18px;
-  opacity: 0.6;
+export const CliInput = styled.input`
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: ${({ theme }) => theme.colors.text};
+  font-family: inherit;
+  font-size: 13px;
+  caret-color: ${({ theme }) => theme.colors.primary};
+`
+
+export const WelcomeWrapper = styled.div`
+  margin-bottom: 12px;
+`
+
+export const AsciiRow = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+`
+
+export const PreTux = styled.pre`
+  color: ${({ theme }) => theme.colors.secondary};
+  font-size: 14px;
+  line-height: 1.2;
+
+  @media (max-width: 600px) {
+    font-size: 10px;
+  }
+`
+
+export const PreLogo = styled.pre`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 14px;
+  line-height: 1.2;
+
+  @media (max-width: 600px) {
+    font-size: 10px;
+  }
+`
+
+export const WelcomeText = styled.div`
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 13px;
+  margin-bottom: 4px;
+`
+
+export const Highlight = styled.span`
+  color: ${({ theme }) => theme.colors.primary};
+`
+
+export const Separator = styled.div`
+  color: ${({ theme }) => theme.colors.border};
+  margin: 8px 0;
+`
+
+export const HelpWrapper = styled.div`
+  margin-bottom: 12px;
+`
+
+export const HelpTitle = styled.div`
+  color: ${({ theme }) => theme.colors.secondary};
+  font-size: 13px;
+  margin-bottom: 8px;
+`
+
+export const HelpLine = styled.div`
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2px;
+`
+
+export const HelpCmd = styled.span`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 13px;
+  min-width: 120px;
+`
+
+export const HelpDesc = styled.span`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 13px;
 `
