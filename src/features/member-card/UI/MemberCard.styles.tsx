@@ -70,7 +70,7 @@ export const Name = styled.h3`
 `
 
 export const Role = styled.span`
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.green};
   font-size: 11px;
 `
 

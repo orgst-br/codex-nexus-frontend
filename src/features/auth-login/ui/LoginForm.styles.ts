@@ -26,7 +26,7 @@ export const Header = styled.div`
 export const Logo = styled.p`
   font-family: ${({ theme }) => theme.fonts.mono};
   font-size: 0.75rem;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.green};
   margin-bottom: 0.5rem;
   letter-spacing: 0.1em;
 `

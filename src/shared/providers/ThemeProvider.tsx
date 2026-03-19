@@ -5,20 +5,29 @@ import { createGlobalStyle, ThemeProvider as SCThemeProvider } from 'styled-comp
 
 export const theme = {
   colors: {
-    primary: '#eebc01',
-    secondary: '#27C93F',
-    accent: '#00D4FF',
-    background: '#1A1B26',
-    surface: '#1E1F2B',
-    text: '#E0E0E0',
-    textSecondary: '#8B949E',
-    border: '#30363D',
-    pink: '#FF6AC1',
-    purple: '#B392F0',
-    orange: '#FF9D00',
-    success: '#27C93F',
-    error: '#FF4757',
-    warning: '#FFA502',
+    background: '#1B2B34',
+    surface: '#343D46',
+    border: '#4F5B66',
+    selection: '#4F5B66',
+
+    text: '#A0AABB',
+    textSecondary: '#7A8A96',
+    bright: '#D8DEE9',
+    muted: '#7A8A96',
+
+    red: '#EC5F67',
+    orange: '#F99157',
+    yellow: '#FAC863',
+    green: '#A8D8A0',
+    cyan: '#6BC5C5',
+    blue: '#7AABDC',
+    purple: '#C594C5',
+
+    primary: '#FAC863',
+    accent: '#5FB3B3',
+    success: '#99C794',
+    error: '#EC5F67',
+    warning: '#F99157',
   },
   fonts: {
     mono: "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace",
