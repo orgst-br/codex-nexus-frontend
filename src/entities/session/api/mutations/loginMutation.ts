@@ -19,7 +19,6 @@ export const useLoginMutation = () =>
       }
       const token = tokenData as TokenResponse
 
-      // Busca dados do usuário usando o token recém-emitido
       const { data: meData, error: meError } = await apiClient.GET('/accounts/me' as never, {
         headers: { Authorization: `Bearer ${token.access}` },
       })
