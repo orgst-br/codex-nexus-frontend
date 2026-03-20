@@ -1,18 +1,61 @@
+```
+ ██████╗ ██████╗  ██████╗ ███████╗████████╗
+██╔═══██╗██╔══██╗██╔════╝ ██╔════╝╚══██╔══╝
+██║   ██║██████╔╝██║  ███╗███████╗   ██║
+██║   ██║██╔══██╗██║   ██║╚════██║   ██║
+╚██████╔╝██║  ██║╚██████╔╝███████║   ██║
+ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝
+```
+
 # Codex Nexus — Orgst Community Platform
 
-Plataforma open-source **weorgst.com**: perfis de membros, acervo de documentação e gestão de projetos.
+Open-source platform for the [Orgst](https://weorgst.com) developer community. Terminal-first interface built on Next.js, TypeScript strict mode, and Feature Sliced Design.
+
+[![Next.js](https://img.shields.io/badge/Next.js-14.2-black)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org)
 
 ---
 
-## Visão do Produto
+## About
 
-O Orgst nasce para ser a "casa" da comunidade:
+Orgst is a volunteer-driven tech community structured as a real software workplace, not a course, not a bootcamp. Members contribute to open-source projects inside an async engineering workflow: sprints, PRs, code review, Kanban, and weekly syncs per discipline (Frontend, Backend, QA, Product).
 
-- **Crachá** — cards de membros com avatar, nome, role/tags, bio, GitHub e LinkedIn
-- **Directory de membros** — perfis ricos com skills, tecnologias e afinidades
-- **Convites** — links/token controlados pelos admins
-- **Docs** — documentação em Markdown com versionamento
-- **Projetos e tarefas** — Kanban com colunas configuráveis por projeto
+Mentors operate as tech leads: they review code, pair, and guide architectural decisions. They do not lecture. The work members ship here is verifiable work experience.
+
+Every merged PR, code review, and shipped feature is permanently recorded in a public git history, a verifiable contribution record that belongs to the member, not the platform.
+
+---
+
+## Platform
+
+Codex Nexus is the community's digital home > an open-source platform designed, built, and maintained by its own members.
+
+### Why a terminal
+
+Every interaction in the UI uses real Linux/Unix/Git vocabulary. The design decision is intentional: members absorb technical concepts through daily use before writing a single line of code.
+
+| UI element            | Underlying concept        |
+| --------------------- | ------------------------- |
+| `git init --identity` | Repository initialization |
+| `set-env USER_ID`     | Environment variables     |
+| `chmod 755 --role`    | Unix permissions          |
+| `cat README.md`       | File output via terminal  |
+| `man <username>`      | Linux manual pages        |
+| `ln -s /github ~/`    | Symbolic links            |
+| `ps aux --community`  | Process listing           |
+| `PID 001`             | Process ID                |
+| `uptime: 142d`        | System uptime             |
+| `grep` in search      | Text filtering            |
+| `fork --this-repo`    | Repository forking        |
+
+### Modules
+
+- **Community Terminal** — command-driven shell as the primary navigation layer
+- **Member Card** — profile with PID, roles, bio, stack, contribution graph and social links
+- **Member Directory** — community feed w/ role filters and search
+- **Invite System** — token-based onboarding controlled by admins
+- **Documentation** — Markdown rendered in the content panel _(in progress)_
+- **Projects & Tasks** — Kanban boards per project _(in progress)_
 
 ---
 
@@ -20,135 +63,103 @@ O Orgst nasce para ser a "casa" da comunidade:
 
 ### Frontend
 
-| Tecnologia                 | Função                     |
-| -------------------------- | -------------------------- |
-| **Next.js 14+**            | Framework React (SSR/SSG)  |
-| **TypeScript**             | Tipagem estática           |
-| **Styled Components**      | CSS-in-JS                  |
-| **React Query (TanStack)** | Cache e estado do servidor |
-| **Zustand**                | Estado global leve         |
-| **React Hook Form + Zod**  | Formulários e validação    |
-| **Jest + Testing Library** | Testes unitários           |
-| **ESLint + Prettier**      | Qualidade de código        |
+| Package                     | Version | Role                                      |
+| --------------------------- | ------- | ----------------------------------------- |
+| **Next.js**                 | 14.2+   | React framework — SSR, RSC, App Router    |
+| **TypeScript**              | 5.3+    | Static typing — strict mode               |
+| **Styled Components**       | 6.1+    | CSS-in-JS — terminal theme                |
+| **TanStack Query**          | 5.75+   | Server state and cache                    |
+| **Zustand**                 | 4.4+    | Client state — session, terminal          |
+| **React Hook Form**         | 7.49+   | Form state management                     |
+| **Zod**                     | 3.22+   | Schema validation and type inference      |
+| **openapi-fetch**           | 0.14+   | Type-safe HTTP client from OpenAPI schema |
+| **i18next + react-i18next** | 25 / 15 | i18n                                      |
+| **Jest + Testing Library**  | 29 / 14 | Unit testing                              |
 
-### Backend
+### Backend _(separate repository)_
 
-| Tecnologia                | Função                     |
-| ------------------------- | -------------------------- |
-| **Python 3.12**           | Linguagem                  |
-| **Django + Django Ninja** | API REST + OpenAPI/Swagger |
-| **PostgreSQL**            | Banco de dados             |
+| Package                        | Role                       |
+| ------------------------------ | -------------------------- |
+| **Python 3.12 + Django Ninja** | REST API + OpenAPI/Swagger |
+| **PostgreSQL**                 | Database                   |
 
-### Deploy
+## Project structure
 
-| Serviço    | Função                |
-| ---------- | --------------------- |
-| **Vercel** | Frontend              |
-| **Docker** | Backend + banco local |
+[Feature Sliced Design](https://feature-sliced.design/)
 
 ---
 
-## Arquitetura Frontend — Feature Sliced Design (FSD)
+## Setup
 
-Organizamos o código em **camadas** para manter tudo modular e escalável:
-
-```
-src/
-├── app/            → Configuração global (providers, layout, rotas)
-├── pages/          → Páginas da aplicação
-├── widgets/        → Blocos compostos de UI (ex: MemberCardGrid)
-├── features/       → Funcionalidades do usuário (ex: criar perfil)
-├── entities/       → Entidades de negócio (ex: Member, Project)
-├── shared/         → Componentes, hooks, utils, config reutilizáveis
-│   ├── ui/         → Componentes base (Button, Input, Card)
-│   ├── lib/        → Helpers e utilitários
-│   ├── api/        → Cliente HTTP e configuração
-│   └── config/     → Constantes e variáveis de ambiente
-```
-
-> Regra de ouro do FSD: camadas superiores podem importar das inferiores, nunca o contrário.
-
----
-
-## Design System — Terminal Style
-
-## O visual do projeto simula um **terminal de linha de comando**
-
-## Estrutura do Monorepo
-
-```
-codex-nexus/
-```
-
----
-
-## Setup Rápido
-
-### Pré-requisitos
-
-- **Node.js 22+**
-
-### Frontend
+Requires **Node.js 22+**
 
 ```bash
-git clone git@github.com:orgst/codex-nexus.git
-cd codex-nexus/frontend
+git clone git@github.com:orgst-br/codex-nexus-frontend.git
+cd codex-nexus-frontend
 npm install
 npm run dev
 ```
 
-**Acessos:**
+---
 
-- Frontend: http://localhost:3000
-- Swagger API: http://127.0.0.1:8000/api/v1/docs
-- Admin Django: http://127.0.0.1:8000/admin
+## Contributing
+
+```bash
+...... TODO
+
+# open PR to main: objective, changes, how to test
+```
+
+### Commit convention
+
+[Conventional Commits](https://www.conventionalcommits.org), enforced by commitlint on `commit-msg`:
+
+```
+feature(community-terminal): add ping command
+fix(member-card): resolve bio overflow on mobile
+refactor(auth-login): simplify useLogin hook
+docs: update setup instructions
+chore: upgrade jest dependencies
+```
+
+Allowed types: `feature` `fix` `chore` `docs` `refactor` `test` `build` `ci` `style`
+
+Issues tagged **`good first issue`** are scoped for first-time contributors.
 
 ---
 
-## Convenções
+## Code quality
 
-### Git
+Enforced automatically via Husky pre-commit hooks.
 
-- **Branches:** `feature/nome`, `fix/nome`, `chore/nome`
-- **Commits:** Conventional Commits (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`)
-- **PRs:** descrição com objetivo, mudanças e como testar
-- **Hooks:** Husky + commitlint validam automaticamente
+| Tool           | Config                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------ |
+| **TypeScript** | `strict` · `noUncheckedIndexedAccess` · `exactOptionalPropertyTypes` · `noImplicitReturns` |
+| **ESLint**     | typescript-eslint · react-hooks · simple-import-sort · import                              |
+| **Prettier**   | 100 chars · no semi · single quotes · trailing commas · LF                                 |
+| **Husky**      | `pre-commit`: lint + format · `commit-msg`: commitlint                                     |
 
-### Código
+Minimum coverage thresholds (`jest.config.cjs`)
 
-- ESLint + Prettier rodam no pre-commit
-- TypeScript strict mode
-- Cobertura de testes mínima: 75% branches, 80% functions, 85% lines
-- Imports organizados automaticamente (eslint-plugin-simple-import-sort)
+## Membership
 
----
+**Mentees** > early-career or career-transition developers. No prior experience required. Contributions serve as verifiable work experience and portfolio.
 
-## Apps Django (planejados)
+**Mentors** > tech professionals acting as project tech leads: code review, pairing, architectural decisions, team guidance within the agile workflow. \*Seniority not required: commitment is.
 
-| App              | Responsabilidade                          |
-| ---------------- | ----------------------------------------- |
-| `apps.accounts`  | User, Profile, Roles, Invites             |
-| `apps.community` | Skills, directory, filtros                |
-| `apps.docs`      | Document + versionamento (body_md) + tags |
-| `apps.projects`  | Projects, membership                      |
-| `apps.boards`    | Boards/Columns (Kanban configurável)      |
-| `apps.tasks`     | Tasks/Comments (ligadas ao Kanban)        |
+Admission by invite at [weorgst.com](https://weorgst.com).
 
 ---
 
-## Como Contribuir
+## Maintainers
 
-1. Crie uma branch a partir de `develop`: `git checkout -b feature/minha-feature`
-2. Desenvolva seguindo as convenções acima
-3. Rode `npm run lint && npm test` antes do commit
-4. Abra um PR para `develop` com descrição clara
-
-Issues com a tag **`good first issue`** são ótimos pontos de entrada para novos voluntários.
+| PID | Name           | Role                |
+| --- | -------------- | ------------------- |
+| 001 | Saphira Xavier | Co-founder · Mentor |
+| 002 | Tiago Monteiro | Co-founder · Mentor |
 
 ---
 
----
+## License
 
-## Licença
-
-MIT — veja [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE)
