@@ -20,7 +20,11 @@ interface HistoryEntry {
   output: TerminalLine[]
 }
 
-export function CommunityTerminal() {
+interface CommunityTerminalProps {
+  onCollapse?: () => void
+}
+
+export function CommunityTerminal({ onCollapse }: CommunityTerminalProps) {
   const router = useRouter()
 
   const { phase, visibleLogs, postLines, progress, autoexecText, skip } = useBoot()
@@ -106,6 +110,11 @@ export function CommunityTerminal() {
         <Dot $color="yellow" />
         <Dot $color="green" />
         <TitleText>fish — orgst@nexus</TitleText>
+        {onCollapse && (
+          <CollapseButton onClick={onCollapse} title="Collapse terminal">
+            ◀
+          </CollapseButton>
+        )}
       </TitleBar>
 
       <Body>
@@ -219,6 +228,25 @@ const TitleText = styled.span`
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: 12px;
   margin-left: 8px;
+  flex: 1;
+`
+
+const CollapseButton = styled.button`
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.colors.muted};
+  font-size: 10px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition:
+    color 0.15s,
+    background 0.15s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.border};
+  }
 `
 
 const Body = styled.div`
