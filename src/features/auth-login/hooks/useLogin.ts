@@ -13,6 +13,7 @@ export const useLogin = () => {
   const login = async (input: LoginInput) => {
     const session = await mutateAsync(input)
     setSession(session)
+    document.cookie = `orgst-token=${session.accessToken}; path=/; SameSite=Lax`
     router.push(isAdmin(session.user.roles) ? '/admin' : '/portal/dashboard')
   }
 
