@@ -153,10 +153,10 @@ Admission by invite at [weorgst.com](https://weorgst.com).
 
 ## Maintainers
 
-| PID | Name           | Role                |
-| --- | -------------- | ------------------- |
-| 001 | Saphira Xavier | Co-founder · Mentor |
-| 002 | Tiago Monteiro | Co-founder · Mentor |
+| PID | Name            | Role                |
+| --- | --------------- | ------------------- |
+| 001 | Saphira Cardoso | Co-founder · Mentor |
+| 002 | Tiago Monteiro  | Co-founder · Mentor |
 
 ---
 

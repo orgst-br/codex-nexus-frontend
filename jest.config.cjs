@@ -1,9 +1,11 @@
-module.exports = {
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({ dir: './' })
+
+/** @type {import('jest').Config} */
+const config = {
   testEnvironment: '@happy-dom/jest-environment',
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
-  transform: {
-    '^.+\\.[jt]sx?$': ['babel-jest', { configFile: './.babelrc' }],
-  },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
@@ -24,3 +26,5 @@ module.exports = {
     },
   },
 }
+
+module.exports = createJestConfig(config)
