@@ -71,8 +71,8 @@ type Member = {
 const MOCK_MEMBERS: Member[] = [
   {
     pid: 1,
-    name: 'Saphira Xavier',
-    initials: 'SX',
+    name: 'Saphira Cardoso',
+    initials: 'SCX',
     avatarColor: 'purple',
     roles: ['founder', 'mentor'],
     bio: 'Someone who loves questioning the "why" and "how" of almost everything!',
@@ -99,6 +99,7 @@ const MOCK_MEMBERS: Member[] = [
     online: true,
     github: 'https://github.com/Tiago-Monteirox',
     linkedin: 'https://linkedin.com/in/tiago-monteiro-e-silva-798300241/',
+    portfolio: 'https://tiago.dev',
   },
   {
     pid: 3,
